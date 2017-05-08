@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-8 18:06:24 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.helloworld.News" table="NEWS">
+    <!-- id特殊 -->
+        <id name="id" type="java.lang.Integer">
+        	<!-- 列名 -->
+            <column name="ID" />
+            <!-- 指定主键的生成方式，native：使用数据库本地的方式 -->
+            <generator class="native" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="date" type="java.sql.Date">
+            <column name="DATE" />
+        </property>
+    </class>
+</hibernate-mapping>

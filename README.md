@@ -82,7 +82,29 @@ ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySett
 修改方言：<!-- 配置hibernate数据库方言 -->
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 
+六、查询功能
+//4.1执行查询：通过反射得来，需要提供News无参构造方法,非final类，绑定集合equals ,hashcode.
+		News news2 = (News) session.get(News.class, 1);
+		System.out.println(news2);
 
+七、说明：
+Configuration：
+管理hibernate配置信息、持久化类和数据表的映射关系*.cfg.xml
+也可通过配置文件*.properties文件。
+SessionFactory：
+构建消耗资源，只需构建一次
+Hibernate ——> Session
+transaction 必须要有事务。例如：假如不加事务，id会增加，但是不会插入数据。
+hbm2ddl.auto：
+update 常用：更新，不会删除已有的行和列。
+create 每次都生成新的数据表。导致前一次的数据，第二次就没了。
+create-drop 用完后就删除。
+validate :若hbm.xml和表结构不一样，抛出异常，不改变数据库。
+
+
+八、session：
+保存、更新、删除、加载 （不包含查询）因为查询并不是session直接处理，通过session获取query等
+session缓存：	hibernate的一级缓存
 
 
 

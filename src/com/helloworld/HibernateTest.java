@@ -34,9 +34,11 @@ public class HibernateTest {
 		//3.开启事务
 		Transaction transaction = session.beginTransaction();
 		//4.执行保存操作
-		News news = new News("Java", "xionghaibo", new Date(new java.util.Date().getTime()));
-		System.out.println(news.getClass().getName());
-		session.save(news);
+//		News news = new News("Java", "xionghaibo", new Date(new java.util.Date().getTime()));
+//		session.save(news);
+		//4.1执行查询
+		News news2 = (News) session.get(News.class, 1);
+		System.out.println(news2);
 		//5.提交事务
 		transaction.commit();
 		//6.关闭session

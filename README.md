@@ -75,6 +75,17 @@ SSH（Hibernate）</br>
 		sessionFactory.close();
 
 四、遇到异常org.hibernate.MappingException: Unknown entity异常		
+重新导入4.X的包，发现问题解决。果断换包，之后再看。
+ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+
+五、ERROR: Table 'samp_db.news' doesn't exist
+修改方言：<!-- 配置hibernate数据库方言 -->
+		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+
+
+
+
 
 	
 
